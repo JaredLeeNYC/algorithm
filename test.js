@@ -1,4 +1,193 @@
 /*
+Class Stack
+*/
+// function Person(name){
+//    this.name = name
+//    var abc = "abc"
+// }
+
+// class Stack{
+//     constructor(...arr){
+//         this.arr = arr
+//         Person.call(this,"222")
+//     }   
+//     push(...item){
+//         this.arr.push(...item)
+//     }
+//     pop(){
+//         this.arr.pop()
+//     }
+//     get peek(){
+//         return this.arr[this.arr.length-1]
+//     }
+//     get isEmpty(){
+//         return this.arr.length>0?false:true
+//     }
+//     get size(){
+//         return this.arr.length
+//     }
+//     clear(){
+//         this.arr.length = []
+//     }
+
+// }
+
+// const s1 = new Stack(1,2,3)
+// s1.pop()
+// s1.pop()
+// s1.pop()
+// s1.push(2,4)
+// console.log(s1.name)
+
+/*
+ Array fill
+*/
+// const arr = [1,2,3,4]
+// arr.map(()=>0)
+// console.log(arr.map(()=>0))
+
+/*
+Refactor Array Slice
+*/
+// Array.prototype.newSlice = function(start, end){
+//      const result = [];
+//      start = start || 0;
+//      end = end || this.length
+//      for(let i=start; i<end; i++){
+//          result.push(this[i])
+//      }
+//      return result
+// }
+// console.log([1,2,3,4].newSlice(1))
+
+
+/*
+Array sum
+*/
+// var arr = [1,2,3,4,5,6,7]
+// console.log(sum(arr))
+
+// function sum(arr){
+//     if(arr === null || arr.length===0){
+//         return null
+//     }
+//      if(arr.length === 1){
+//          return arr[0]
+//      }
+//      if(arr.length ===2){
+//          return arr[0]+arr[1]
+//      }
+//      return arr[arr.length-1]+sum(arr.slice(0,arr.length-1))
+
+// }
+
+/*
+refactor reduce
+*/
+// Array.prototype.newReduce = function(fn, initial){
+//         if(typeof fn !== "function"){
+//         return new TypeError("argument should be a function")
+//     }
+//      let result = initial;
+//      const arr = this;
+//      for(let i=0; i<this.length; i++){
+//          result = fn(result, arr[i], i, arr)
+//      }
+//      return result
+// }
+// console.log([1,2,3,4].newReduce((pre, cur)=>{
+//     return pre+cur
+// }, 0))
+
+
+/*
+Math.max
+*/
+// console.log(Math.max(...[1,2,3,4]))
+// console.log([1,2,3,4].reduce((prev, curr, currIndex, arr)=>{
+//     return Math.max(prev, curr)
+// },6))
+
+/*
+Array sort algorithym
+*/
+// console.log([1,3,4,2].sort((a,b)=>b-a))
+// Array.prototype.bubleSort = function(fn){
+//     if(typeof fn !== "function"){
+//         return new TypeError("argument should be a function")
+//     }
+//     const arr = this;
+//     for(let i=0; i<arr.length; i++){
+//         for(let j=0; j<arr.length-i; j++){
+//             if(fn(arr[j],arr[j+1])>0){
+//                 //  let  temp = arr[j]
+//                 //  arr[j] = arr[j+1]
+//                 //  arr[j+1] = temp
+//                 [arr[j],arr[j+1]] = [arr[j+1], arr[j]]
+//             }
+//         }
+//     }
+//     return arr
+// }
+
+// Array.prototype.selectSort = function(fn){
+//     if(typeof fn !== "function"){
+//         return new TypeError("argument should be a function")
+//     }
+//     const arr = this;
+   
+//     for(let i=0; i<arr.length; i++){
+       
+//         for(let j=i+1; j<arr.length;j++){
+//             if(fn(arr[i],arr[j])>0){
+//                  [arr[i], arr[j]] = [arr[j], arr[i]]
+               
+//             }
+//         }
+       
+  
+//     }
+//     return arr
+// }
+// console.log([1,3,4,2].selectSort((a,b)=>a-b))
+// console.log([1,3,4,2].bubleSort((a,b)=>b-a))
+
+/*
+Array deduplication
+*/
+// console.log(Array.from(new Set([1,2,2,3,3,4])))
+// console.log([...new Set([1,2,2,3,3,4])])
+// Array.prototype.distinct = function(){
+//     const map = {}
+//     const result = []
+//     for(const n of this){
+//         if(!(n in map)){
+//            map[n]=1
+//            result.push(n)
+//         }
+//     }
+//     return result
+// }
+
+// console.log([1,2,2,3,3,4].distinct())
+
+/*
+Array.prototype.flat && refactor
+*/
+// console.log([1,[2,3,[4,5,[6,7,[8,9]]]]].flat(Infinity))
+// function flatten(arr){
+//     while(arr.some(item=>Array.isArray(item))){
+//         console.log(...arr)
+//         arr = [].concat(...arr)
+       
+//     }
+//     return arr;
+// }
+// console.log(flatten([1,[2,3]]))
+// console.log(flatten([1,[2,3,[4,5]]]))
+
+
+/*
 refactor new operator
 */
 // var new2 = function(func,...parameter){
